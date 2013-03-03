@@ -1,0 +1,40 @@
+body{
+	padding: 0px;
+	margin: 0px;
+}
+
+#logo, #backboard, canvas, #mainInput{
+	margin: 0 auto;
+}
+
+#container{
+	width: 320px;
+	height: 440px;
+	background: url("../assets/bg.jpg")no-repeat;
+}
+
+#logo{
+	background: url("../assets/logo.png")no-repeat;
+	width: 218px;
+	height: 64px;
+}
+
+#backboard{
+	background: url("../assets/backboard.png")no-repeat;
+	width: 254px;
+	height: 346px;
+}
+
+canvas{
+	padding: 30px 10px 10px 0px;
+}
+
+#mainInput{
+	opacity: 0.2;
+	width: 100px;
+	display: block;
+}
+
+#continueBtn{
+	
+}
