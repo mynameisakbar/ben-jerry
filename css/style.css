@@ -1,6 +1,7 @@
 body{
 	padding: 0px;
 	margin: 0px;
+	background-color: #7cccf8;
 }
 
 #logo, #backboard, canvas, #mainInput, #choosePhoto,#question-2-title,#question-3-title ,#startFriend,#q-holder{
@@ -77,7 +78,7 @@ canvas{
 	position: relative;
 	display: block;
 	bottom: 70px;
-	left: 218px;
+	left: 225px;
 }
 
 #q-holder{
@@ -85,7 +86,7 @@ canvas{
 	overflow: hidden;
 	position: relative;
 	bottom: 125px;
-	left: 254px;
+	left: 260px;
 }
 
 #name1, #name2{
