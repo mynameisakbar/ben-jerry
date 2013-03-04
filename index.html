@@ -8,6 +8,7 @@
 	<script src="js/binaryajax.js"></script>
 	<script src="js/exif.js"></script>
 	<script src="js/megapix-image.js"></script>
+	<script src="js/hammer.min.js"></script>
 	<script src="js/general.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
@@ -19,9 +20,28 @@
 			<div id="backboard">
 		 		<canvas id="canvasImage"></canvas>
 
+
+		 		<!--section 1-->
+				<div id="choosePhoto"></div>
+
 				<input type="file" id="mainInput"/>
 
-				<!--input type="image" id="continueBtn"/-->
+
+				<!--section 2 so this is currently hidden at start-->
+				<div id="question-2-title"></div>
+
+				<input type="month" id="startFriend"/>
+
+				<!--section 3 so this is currently hidden at start too-->
+				<div id="question-3-title"></div>
+
+				<div id="q-holder">
+					<input type="text" id="name1"/>
+					<input type="text" id="name2"/>
+				</div>
+
+				<!--continue btn for next and submission-->
+				<div id="continue-btn"></div>
 			</div>
 		</div>
     </body>

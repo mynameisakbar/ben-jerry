@@ -1,9 +1,15 @@
 window.onload = function() {
 
+
   setTimeout(function(){
     // Hide the address bar!
     window.scrollTo(0, 1);
   }, 0);
+
+  $("#container").bind("touchmove", {}, function(event){
+    event.preventDefault();
+  });
+
 
   var fileInput = document.getElementById('mainInput');
   fileInput.onchange = function() {
@@ -36,29 +42,29 @@ window.onload = function() {
         mpImg.render(resCanvas1, { maxWidth: 180, maxHeight: 190, quality:1, orientation: imgOrient});
 
     }
-
-    /*abc.onloadend = function(){
-        console.log($('#canvasImage').height());
-        if($('#canvasImage').width() < 200){
-            console.log("less than 200");
-            //$('#resultCanvas').css("left", "45px");
-        }else{
-            //$('#resultCanvas').css("left", "10px");
-        }
-    }
-
-    (function checkCanvas() {
-        console.log($('#canvasImage').height());
-        if($('#canvasImage').width() < 200){
-            console.log("less than 200");
-            //$('#resultCanvas').css("left", "45px");
-        }else{
-            //$('#resultCanvas').css("left", "10px");
-        }
-    }*/
-    
-    console.log(file);
-    console.log(file.type);
     
   };
+
+  var element = document.getElementById('continue-btn');
+  var hammertime = Hammer(element).on("tap", function(event) {
+        //console.log('tap me bro!');
+
+        
+
+        //this condition for the 1st tap
+        if($('#choosePhoto').offset().left > 0){
+            console.log($('#choosePhoto').offset().left);
+            console.log($('#choosePhoto').offset().top);
+            //$("#choosePhoto").animate({"left":"-240px"},200);
+            //$("#mainInput").animate({"left":"-240px"},200);
+        }else{
+            console.log("it's not in bro");
+            //$('#canvasImage').css("padding-left", "35px");
+        }
+
+    });
+
+
 };
+
+
