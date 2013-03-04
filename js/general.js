@@ -71,6 +71,8 @@ window.onload = function() {
 
         }else if($("#name1").val().length !=0 && $("#name2").val().length !=0){
             console.log("submit form");
+            var datadatadata = document.getElementById('canvasImage').toDataURL();
+            console.log(datadatadata);
 
         }
 
