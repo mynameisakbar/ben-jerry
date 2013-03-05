@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>B&J</title>
+	<meta name = "viewport" content = "width=320,initial-scale=1, user-scalable=no">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/binaryajax.js"></script>
+	<script src="js/exif.js"></script>
+	<script src="js/megapix-image.js"></script>
+	<script src="http://eightmedia.github.com/hammer.js/dist/jquery.hammer.js"></script>
+	<script src="js/general.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+	<body>
+		<div id="container">
+			<div id="logo"></div>
+
+			<form id="uploadForm">
+				<div id="backboard">
+			 		<canvas id="canvasImage"></canvas>
+
+			 		<!--section 1-->
+					<div id="choosePhoto"></div>
+
+					<input type="file" id="mainInput" required/>
+
+
+					<!--section 2 so this is currently hidden at start-->
+					<div id="question-2-title"></div>
+
+					<input type="month" id="startFriend" required/>
+
+					<!--section 3 so this is currently hidden at start too-->
+					<div id="question-3-title"></div>
+
+					<div id="q-holder">
+						<input type="text" id="name1" required/>
+						<input type="text" id="name2" required/>
+					</div>
+
+					<!--continue btn for next and submission-->
+					<div id="continue-btn"></div>
+				</div>
+			</form>
+		</div>
+    </body>
+
+</html>

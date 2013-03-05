@@ -4,9 +4,12 @@ body{
 	background-color: #7cccf8;
 }
 
-#logo, #backboard, canvas, #mainInput, #choosePhoto,#question-2-title,#question-3-title ,#startFriend,#q-holder{
+#logo, #backboard, canvas, #mainInput, #choosePhoto,#question-2-title,#question-3-title ,#startFriend,#q-holder,
+#history-scroller{
 	margin: 0 auto;
 }
+
+/*upload page*/
 
 #container{
 	width: 320px;
@@ -46,12 +49,20 @@ canvas{
 	position: relative;
 }
 
-#continue-btn{
+#continue-btn, #go-to-gallery{
 	background: url("../assets/continue-btn.png")no-repeat;
 	width: 173px;
 	height: 68px;
+}
+
+#continue-btn{
 	position: relative;
 	bottom: 105px
+}
+
+#go-to-gallery{
+	position: relative;
+	top: 35px;
 }
 
 #question-2-title{
@@ -110,5 +121,32 @@ input[type="month"]{
 input[type="text"]{
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#969696), color-stop(16%,#d3d3d3), color-stop(100%,#ffffff));
 	border: solid hsl(206, 62%, 40%) 3px;
+}
+
+/*splash page*/
+#splash-timemachine{
+	background: url("../assets/tm.png")no-repeat;
+	width: 311px;
+	height: 414px;
+}
+
+#splash-start{
+	background: url("../assets/start.png")no-repeat;
+	width: 80px;
+	height: 80px;
+	position: relative;
+	float: right;
+	top: 230px;
+}
+
+/*history page*/
+#history-scroller{
+	width: 80%;
+	height: 65%;
+	overflow: scroll;
+	overflow-x: hidden;
+	position: relative;
+	top: 30px;
+	font-family: 'Open Sans', sans-serif;
 }
 
