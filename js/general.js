@@ -73,6 +73,7 @@ window.onload = function() {
             console.log("submit form");
             var datadatadata = document.getElementById('canvasImage').toDataURL();
             console.log(datadatadata);
+            window.location = "gallery.html";
 
         }
 
