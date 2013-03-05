@@ -90,7 +90,8 @@ canvas{
 }
 
 #name1, #name2{
-	width: 45%;
+	width: 41%;
+	font-weight: bold;
 }
 
 #name1{
@@ -100,3 +101,14 @@ canvas{
 #name2{
 	float: right;
 }
+
+input[type="month"]{
+	/*background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#969696), color-stop(16%,#d3d3d3), color-stop(100%,#ffffff));*/
+	border: solid hsl(206, 62%, 40%) 3px;
+}
+
+input[type="text"]{
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#969696), color-stop(16%,#d3d3d3), color-stop(100%,#ffffff));
+	border: solid hsl(206, 62%, 40%) 3px;
+}
+
