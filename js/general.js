@@ -47,7 +47,11 @@ window.onload = function() {
 
   var hammertime = $("#continue-btn").hammer();
   hammertime.on("tap", function(ev) {
-  console.log($('#startFriend').offset().left);
+
+  //console.log("ok bro");
+  //console.log($('#startFriend').offset().left);
+  //console.log($('#choosePhoto').offset().left);
+  //console.log($('#canvasImage').width());
 
         //this condition for the 1st tap
         if($('#canvasImage').width() > 200){
@@ -55,7 +59,7 @@ window.onload = function() {
             alert("Please select an image to proceed");
 
         }else if ($('#choosePhoto').offset().left > 0 && $('#canvasImage').width() < 200){
-            //console.log("ok bro");
+            
             $("#choosePhoto").animate({"left":"-240px"},200);
             $("#mainInput").animate({"left":"-240px"},200);
             $("#question-2-title").animate({"left":"0px"},200);

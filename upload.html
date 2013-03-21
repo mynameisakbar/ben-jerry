@@ -17,7 +17,7 @@
 		<div id="container">
 			<div id="logo"></div>
 
-			<form id="uploadForm">
+			<form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
 				<div id="backboard">
 			 		<canvas id="canvasImage"></canvas>
 
@@ -40,7 +40,12 @@
 						<input type="text" id="name2" required/>
 					</div>
 
-					<!--continue btn for next and submission-->
+
+					<!--input type='submit' value="Upload"-->
+				</div>
+				<!--continue btn for next and submission-->
+				<div class="backboard-btn-holder" id="gallery-btn">
+					<div id="cow"></div>
 					<div id="continue-btn"></div>
 				</div>
 			</form>
