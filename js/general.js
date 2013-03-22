@@ -6,6 +6,8 @@ window.onload = function() {
     window.scrollTo(0, 1);
   }, 0);
 
+
+
   $("#container").bind("touchmove", {}, function(event){
     event.preventDefault();
   });
@@ -38,8 +40,30 @@ window.onload = function() {
 
          //Render resized image into canvas element.
         var resCanvas1 = document.getElementById('canvasImage');
-        console.log(resCanvas1);
-        mpImg.render(resCanvas1, { maxWidth: 180, maxHeight: 190, quality:1, orientation: imgOrient});
+        mpImg.render(resCanvas1, { width: 180, height: 180, quality:1, orientation: imgOrient});
+        console.log(canvasImage.toDataURL());
+
+
+      /*var canvas = document.getElementById('testCanvas');
+      var context = canvas.getContext('2d');
+      var imageObj = new Image();
+
+      imageObj.onload = function() {
+        // draw cropped image
+        var sourceX = 150;
+        var sourceY = 0;
+        var sourceWidth = 150;
+        var sourceHeight = 150;
+        var destWidth = sourceWidth;
+        var destHeight = sourceHeight;
+        var destX = canvas.width / 2 - destWidth / 2;
+        var destY = canvas.height / 2 - destHeight / 2;
+
+        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+      };
+      
+      imageObj.src = abc.readAsBinaryString(file);*/
+
 
     }
     
@@ -83,9 +107,11 @@ window.onload = function() {
 
   });
 
-        
-
-
 };
 
+$(document).ready(function() {
+  // Handler for .ready() called.
+    $("#balloon").animate({"left": "-300px"}, 15000);
+    $("#cow-pop").animate({"bottom": "130px"}, 3000);
 
+});

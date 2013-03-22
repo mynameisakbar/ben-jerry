@@ -206,6 +206,24 @@ input[type="text"]{
 	position: relative;
 }
 
+#cow-pop{
+	background: url("../assets/cow.png")no-repeat;
+	width:126px;
+	height: 100px;
+	position: relative;
+	bottom: 20px;
+}
+
+#balloon{
+	background: url("../assets/balloon.png")no-repeat;
+	width: 296px;
+	height: 290px;
+	position: relative;
+	bottom: 450px;
+	z-index: 160;
+	left: 315px;
+}
+
 
 /*history page*/
 #head, #head-steps{

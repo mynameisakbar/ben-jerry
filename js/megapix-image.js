@@ -103,7 +103,27 @@
       }
       sy += d;
     }
+
+    var imageObj = new Image();
+    imageObj.src = tmpCanvas.toDataURL();
+
+    console.log(tmpCanvas.toDataURL());
+
+    var sourceX = 90;
+    var sourceY = 140;
+    var sourceWidth = 480;
+    var sourceHeight = 480;
+    var destWidth = 300;
+    var destHeight = 300;
+    var destX = 0;
+    var destY = 0;
+
+    //ctx.drawImage(tmpCanvas, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
+
+    console.log(imageObj);
+
     ctx.restore();
+
     tmpCanvas = tmpCtx = null;
   }
 
