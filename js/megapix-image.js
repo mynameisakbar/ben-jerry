@@ -104,26 +104,7 @@
       sy += d;
     }
 
-    var imageObj = new Image();
-    imageObj.src = tmpCanvas.toDataURL();
-
-    console.log(tmpCanvas.toDataURL());
-
-    var sourceX = 90;
-    var sourceY = 140;
-    var sourceWidth = 480;
-    var sourceHeight = 480;
-    var destWidth = 300;
-    var destHeight = 300;
-    var destX = 0;
-    var destY = 0;
-
-    //ctx.drawImage(tmpCanvas, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
-
-    console.log(imageObj);
-
     ctx.restore();
-
     tmpCanvas = tmpCtx = null;
   }
 
@@ -259,12 +240,34 @@
       this.onrender(target);
     }
 
-    //console.log($('#canvasImage').height());
-    if($('#canvasImage').width() < 180){
-            //console.log("less than 200");
-            $('#canvasImage').css("padding-left", "55px");
-        }else{
-            $('#canvasImage').css("padding-left", "35px");
+    //alert($('#canvasImage').height());
+    //alert($('#canvasImage').width());
+
+    if($('#canvasImage').width()/$('#canvasImage').height() == 0.75){
+            $('#canvasImage').css("opacity", "1");
+            $('#canvasImage').css("padding-left", "85px");
+            $('#canvasImage').css("position", "relative");
+            $('#canvasImage').css("top", "30px");
+            $('#canvasImage').css("margin-bottom", "20px");
+
+        }else if ($('#canvasImage').width()/$('#canvasImage').height() == 1){
+            $('#canvasImage').css("opacity", "1");
+            $('#canvasImage').css("padding-left", "85px");
+            $('#canvasImage').css("position", "relative");
+            $('#canvasImage').css("top", "20px");
+            $('#canvasImage').css("margin-bottom", "20px");
+
+        }else if ($('#canvasImage').width()/$('#canvasImage').height() > 1){
+            $('#canvasImage').css("opacity", "0");
+            alert("Please upload portrait image, instead of landscape.");
+
+        }else {
+            $('#canvasImage').css("opacity", "1");
+            $('#canvasImage').css("padding-left", "105px");
+            $('#canvasImage').css("position", "relative");
+            $('#canvasImage').css("top", "20px");
+            $('#canvasImage').css("margin-bottom", "20px");
+            
         }
 
   };

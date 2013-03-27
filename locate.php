@@ -7,6 +7,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://eightmedia.github.com/hammer.js/dist/jquery.hammer.js"></script>
 	<script src="js/general.js"></script>
 	
 	<style type="text/css">
@@ -14,7 +15,7 @@
       	height: 70%; 
       	width: 80%; 
       	margin: 0 auto;
-      	top: 75px;
+      	top: 25px;
       	border: solid hsl(206, 62%, 40%) 5px;
       	box-shadow: 2px 3px 3px 0px hsl(206, 63%, 40%);
       }
@@ -29,6 +30,17 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+        // Define Marker properties
+        var image = new google.maps.MarkerImage('assets/iconmarker.png',
+        // This marker is 129 pixels wide by 42 pixels tall.
+        new google.maps.Size(28, 44),
+        // The origin for this image is 0,0.
+        new google.maps.Point(0,0),
+        // The anchor for this image is the base of the flagpole at 18,42.
+        new google.maps.Point(10, 44)
+        );
+
 
         var contentString = '<h3>Rochester Park</h3>31 Rochester Drive #01-01<br/>'+
         'Rochester Mall<br/>Singapore 138637<br/>'+
@@ -69,6 +81,7 @@
         var marker1 = new google.maps.Marker({
             position: new google.maps.LatLng(1.3052569,103.78842),
             map: map,
+            icon: image,
             title: 'Rochester Park'
         });
         google.maps.event.addListener(marker1, 'click', function() {
@@ -82,6 +95,7 @@
         var marker2 = new google.maps.Marker({
             position: new google.maps.LatLng(1.2650329,103.821761),
             map: map,
+            icon: image,
             title: 'VivoCity'
         });
         google.maps.event.addListener(marker2, 'click', function() {
@@ -95,6 +109,7 @@
         var marker3 = new google.maps.Marker({
             position: new google.maps.LatLng(1.293984,103.832088),
             map: map,
+            icon: image,
             title: 'Great World City'
         });
         google.maps.event.addListener(marker3, 'click', function() {
@@ -108,6 +123,7 @@
         var marker4 = new google.maps.Marker({
             position: new google.maps.LatLng(1.299451,103.847698),
             map: map,
+            icon: image,
             title: 'The Cathay'
         });
         google.maps.event.addListener(marker4, 'click', function() {
@@ -121,6 +137,7 @@
         var marker5 = new google.maps.Marker({
             position: new google.maps.LatLng(1.3043198,103.8093897),
             map: map,
+            icon: image,
             title: 'Dempsey'
         });
         google.maps.event.addListener(marker5, 'click', function() {
@@ -134,6 +151,7 @@
         var marker6 = new google.maps.Marker({
             position: new google.maps.LatLng(1.2925456,103.8535097),
             map: map,
+            icon: image,
             title: 'Raffles City'
         });
         google.maps.event.addListener(marker6, 'click', function() {
@@ -147,6 +165,7 @@
         var marker9 = new google.maps.Marker({
             position: new google.maps.LatLng(1.41167,103.785738),
             map: map,
+            icon: image,
             title: 'Night Safari'
         });
         google.maps.event.addListener(marker9, 'click', function() {
@@ -160,6 +179,7 @@
         var marker8 = new google.maps.Marker({
             position: new google.maps.LatLng(1.3180714,103.7068176),
             map: map,
+            icon: image,
             title: 'Jurong Bird Park'
         });
         google.maps.event.addListener(marker8, 'click', function() {
@@ -213,10 +233,23 @@
   </head>
     
     <body onload="initialize()">  
+    <?php include_once("analytics.php") ?>
+
 		
   		<div id="container">
+          <div id="logo"></div>
+
   				<div id="map-canvas"></div>
+
+          <a href="coupon.php" onClick="_gaq.push(['_trackEvent', 'navigation', 'goToCoupon']);"><div id="close-btn"></div></a>
+
+          <div id="text-map">Can't see the map? Tap here!</div>
   		</div>
     </body>
-
+     <script type="text/javascript">
+        setTimeout(function(){
+        // Hide the address bar!
+        window.scrollTo(0, 1);
+        }, 0);
+    </script>
 </html>

@@ -13,6 +13,8 @@
 	<body>
 		
 		<div id="container">
+				<?php include_once("analytics.php") ?>
+				<div id="logo"></div>
 				<div id="head"></div>
 				
 				<div id="backboard-title">
@@ -21,11 +23,12 @@
  
 							<p>If you just can't wait for Free Cone Day, join our friendship timeline by uploading a photo of you and your friend to get 1-for-1 ice cream!</p>
 						</div>
+						<div class="backboard-btn-holder">
+							<a href="http://mynameisakbar.com/files/bjcal.ics" target="_blank" onClick="trackOutboundLink(this, 'Outbound Links', 'download calendar'); return false;"><div id="calendar"></div></a>
+							<a href="gallery-before.php" onClick="_gaq.push(['_trackEvent', 'navigation', 'goToSteps']);"><div id="next-btn"></div></a>
+						</div>
 				</div>
-				<div class="backboard-btn-holder">
-					<a href="http://mynameisakbar.com/files/bjcal.ics" target="_blank"><div id="calendar"></div></a>
-					<a href="steps.html"><div id="next-btn"></div></a>
-				</div>
+				
 		</div>
     </body>
 

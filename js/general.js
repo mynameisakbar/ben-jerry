@@ -15,6 +15,7 @@ window.onload = function() {
 
   var fileInput = document.getElementById('mainInput');
   fileInput.onchange = function() {
+    $('#image-temp').css( "display", "none" );
     var file = fileInput.files[0];
 
     var abc = new FileReader();
@@ -23,8 +24,10 @@ window.onload = function() {
     abc.onload = function(){
 
         var finalExif = EXIF.readFromBinaryFile(new BinaryFile(abc.result));
-        //alert(finalExif.Orientation);
+    
+        //alert(finalExif.ImageHeight + " " + finalExif.DateTimeOriginal + " " +finalExif.Orientation);
         var mpImg = new MegaPixImage(file);
+
         var imgOrient = 1;
 
         if(finalExif.Orientation == 6){
@@ -35,39 +38,35 @@ window.onload = function() {
             imgOrient = 1;
         }
 
-        console.log(mpImg);
-        console.log(mpImg.srcImage);
+        //console.log(mpImg);
+        //console.log(mpImg.srcImage);
 
          //Render resized image into canvas element.
         var resCanvas1 = document.getElementById('canvasImage');
-        mpImg.render(resCanvas1, { width: 180, height: 180, quality:1, orientation: imgOrient});
+        //mpImg.render(resCanvas1, {width: 193, height: 204, quality:1, orientation: imgOrient});
+        mpImg.render(resCanvas1, {width: 150, maxHeight: 200, quality:1, orientation: imgOrient});
         console.log(canvasImage.toDataURL());
-
-
-      /*var canvas = document.getElementById('testCanvas');
-      var context = canvas.getContext('2d');
-      var imageObj = new Image();
-
-      imageObj.onload = function() {
-        // draw cropped image
-        var sourceX = 150;
-        var sourceY = 0;
-        var sourceWidth = 150;
-        var sourceHeight = 150;
-        var destWidth = sourceWidth;
-        var destHeight = sourceHeight;
-        var destX = canvas.width / 2 - destWidth / 2;
-        var destY = canvas.height / 2 - destHeight / 2;
-
-        context.drawImage(imageObj, sourceX, sourceY, sourceWidth, sourceHeight, destX, destY, destWidth, destHeight);
-      };
-      
-      imageObj.src = abc.readAsBinaryString(file);*/
-
 
     }
     
   };
+
+
+  // Convert DataURL to Blob object
+    function dataURLtoBlob(dataURL) {
+      // Decode the dataURL    
+      var binary = atob(dataURL.split(',')[1]);
+      // Create 8-bit unsigned array
+      var array = [];
+      for(var i = 0; i < binary.length; i++) {
+          array.push(binary.charCodeAt(i));
+      }
+      // Return our Blob object
+      //alert(array);
+      var test = new Blob([new Uint8Array(array)], {type: 'image/png'});
+      alert (test.size);
+      return new Blob([new Uint8Array(array)], {type: 'image/png'});
+    }
 
   var hammertime = $("#continue-btn").hammer();
   hammertime.on("tap", function(ev) {
@@ -78,11 +77,11 @@ window.onload = function() {
   //console.log($('#canvasImage').width());
 
         //this condition for the 1st tap
-        if($('#canvasImage').width() > 200){
+        if($('#canvasImage').width() > 205){
             //console.log("it's not in bro");
             alert("Please select an image to proceed");
 
-        }else if ($('#choosePhoto').offset().left > 0 && $('#canvasImage').width() < 200){
+        }else if ($('#choosePhoto').offset().left > 0 && $('#canvasImage').width() < 205){
             
             $("#choosePhoto").animate({"left":"-240px"},200);
             $("#mainInput").animate({"left":"-240px"},200);
@@ -101,17 +100,68 @@ window.onload = function() {
             console.log("submit form");
             var datadatadata = document.getElementById('canvasImage').toDataURL();
             console.log(datadatadata);
-            window.location = "gallery.html";
+            //alert (datadatadata.length);
+
+            
+            //console.log(file);
+    
+
+            var startDate = $("#startFriend").val();
+            var FirstName = $("#name1").val();
+            var SecondName = $("#name2").val();
+
+           console.log(startDate);
+           console.log(FirstName);
+           console.log(SecondName);
+
+      var tep = datadatadata.replace('data:image/png;base64,', '');
+
+            var data = "img=" + tep + '&date=' + startDate + '&fname=' + FirstName + '&sname=' + SecondName;
+
+           console.log (data);
+            // Create new form data
+            $.ajax({
+                    type: "POST",
+                    url: "upload.php",
+                    data: data,
+                    beforeSend : function(){
+                      $("#grayout").show();
+                    },
+                    complete : function(){
+                      $("#grayout").hide();
+                    },
+                    success: function(data){
+                      window.location = "gallery.php";
+                      console.log(data);
+                      if(data.status === 'OK'){
+                        console.log('upload success');
+                      }
+                    }
+                  });
 
         }
 
   });
 
 };
+  
+ 
+
 
 $(document).ready(function() {
   // Handler for .ready() called.
     $("#balloon").animate({"left": "-300px"}, 15000);
-    $("#cow-pop").animate({"bottom": "130px"}, 3000);
+    $("#cow-pop").animate({"bottom": "200px"}, 3000);
+    $("#image-filler").animate({"background-position-y": "-87px"}, 3000);
+    $("#image-filler").delay(3000).animate({"background-position-y": "-174px"}, 3000);
+    $("#image-filler").delay(6000).animate({"background-position-y": "0px"}, 3000);
+    $("#image-filler").delay(9000).animate({"background-position-y": "-87px"}, 3000);
+    $("#image-filler").delay(12000).animate({"background-position-y": "-174px"}, 3000);
+
+    var hammertime2 = $("#text-map").hammer();
+    hammertime2.on("tap", function(ev) {
+      alert('You probably turned off the location sharing in Safari.\nGo to Settings->Privacy->Location Services and ensure that Safari is set to on. Refresh this page and it should work!');
+      //console.log("dick");
+    });
 
 });

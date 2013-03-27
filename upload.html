@@ -10,6 +10,19 @@
 	<script src="js/megapix-image.js"></script>
 	<script src="http://eightmedia.github.com/hammer.js/dist/jquery.hammer.js"></script>
 	<script src="js/general.js"></script>
+	<script type="text/javascript">
+
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-39553666-1']);
+		  _gaq.push(['_trackPageview']);
+
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  			})();
+
+	</script>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
@@ -17,9 +30,11 @@
 		<div id="container">
 			<div id="logo"></div>
 
-			<form id="uploadForm" action="upload.php" method="POST" enctype="multipart/form-data">
+			<form id="uploadForm">
 				<div id="backboard">
+
 			 		<canvas id="canvasImage"></canvas>
+			 							<div id="image-temp"></div>
 
 			 		<!--section 1-->
 					<div id="choosePhoto"></div>
@@ -39,17 +54,27 @@
 						<input type="text" id="name1" required/>
 						<input type="text" id="name2" required/>
 					</div>
+					<div class="backboard-btn-holder" id="gallery-btn">
+						<div id="cow" style="height: 125px!important;"></div>
+						<div id="continue-btn" onClick="_gaq.push(['_trackEvent', 'action', 'upload button clicked']);">
+						</div>
 
+				</div>
 
 					<!--input type='submit' value="Upload"-->
 				</div>
 				<!--continue btn for next and submission-->
-				<div class="backboard-btn-holder" id="gallery-btn">
-					<div id="cow"></div>
-					<div id="continue-btn"></div>
-				</div>
+				
 			</form>
+
+			<div id="grayout" style="position: relative; z-index: 998; display:none">
+	     		 <div style="position:absolute; z-index:999; width: 320px; height:500px; opacity: 0.65; background: #000000; cursor: not-allowed; -webkit-border-radius: 8px 8px 8px 8px;">
+	       		 <img src="assets/ajax-loader.gif" style="position:absolute;top:230px;left:140px"/>
+     		 </div>
+    </div>
+
 		</div>
+
     </body>
 
 </html>

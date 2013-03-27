@@ -11,15 +11,14 @@
 
 	<body>
 		<div id="container">
-			<div id="head-steps"></div>
-
-				<div id="backboard-title">
-					<div id="steps"></div>
-				</div>
-				<div class="backboard-btn-holder">
-					<a href="" target="_blank"><div id="cow"></div></a>
-					<a href="upload.html"><div id="continue-btn"></div></a>
-				</div>
+			<?php include_once("analytics.php") ?>
+			<!--a href="history.html"><div id="splash-start"></div></a>
+			<div id="splash-timemachine"></div-->
+			<a href="history.php" onClick="_gaq.push(['_trackEvent', 'navigation', 'goToHistory']);"><div id="splash-start"></div></a>
+			<div id="machine"></div>
+			<div id="image-filler"></div>
+			<div id="cow-pop"></div>
+			<div id="balloon"></div>
 		</div>
     </body>
 

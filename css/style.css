@@ -51,7 +51,7 @@ body{
 
 #container{
 	width: 320px;
-	height: 440px;
+	height: 416px;
 	background: url("../assets/bg-fin.jpg")no-repeat;
 }
 
@@ -59,19 +59,27 @@ body{
 	background: url("../assets/logo.png")no-repeat;
 	width: 218px;
 	height: 64px;
+	position: relative;
+	z-index: 100;
 }
 
 #backboard, #backboard-title{
 	background: url("../assets/backboard.png")no-repeat;
-	width: 254px;
-	height: 346px;
+	width: 320px;
+	height: 100%;
+	background-position: center;
 }
 
 #backboard-title{
 	position: relative;
-	top: -50px;
+	top: -100px;
 	z-index: 0;
 	text-align: center;
+}
+
+#backboard{
+	position: relative;
+	bottom: 40px;
 }
 
 canvas{
@@ -88,9 +96,9 @@ canvas{
 }
 
 #choosePhoto{
-	background: url("../assets/choose-img.png")no-repeat;
-	width: 145px;
-	height: 43px;
+	background: url("../assets/choose-img2.png")no-repeat;
+	width: 179px;
+	height: 44px;
 	position: relative;
 }
 
@@ -101,7 +109,7 @@ canvas{
 }
 
 #gallery-btn{
-	bottom: 0px;
+	bottom: -15px;
 }
 
 /*#continue-btn{
@@ -125,7 +133,7 @@ canvas{
 	height: 29px;
 	position: relative;
 	bottom: 85px;
-	left: 218px;
+	left: 235px;
 }
 
 #question-3-title{
@@ -143,7 +151,7 @@ canvas{
 	position: relative;
 	display: block;
 	bottom: 70px;
-	left: 225px;
+	left: 235px;
 }
 
 #q-holder{
@@ -151,7 +159,7 @@ canvas{
 	overflow: hidden;
 	position: relative;
 	bottom: 125px;
-	left: 260px;
+	left: 285px;
 }
 
 #name1, #name2{
@@ -198,7 +206,7 @@ input[type="text"]{
 }
 
 #image-filler{
-	background: url("../assets/testingimage.png")no-repeat;
+	background: url("../assets/PANAS.png")no-repeat;
 	width: 150px;
 	height: 87px;
 	margin: 0 auto;
@@ -209,8 +217,9 @@ input[type="text"]{
 #cow-pop{
 	background: url("../assets/cow.png")no-repeat;
 	width:126px;
-	height: 100px;
+	height: 190px;
 	position: relative;
+	z-index: 150;
 	bottom: 20px;
 }
 
@@ -235,27 +244,28 @@ input[type="text"]{
 	background: url("../assets/comeandgetit.png")no-repeat;
 	width: 305px;
 	height: 63px;
-	top: 30px;
+	top: 
+	10px;
 }
 
 #head-steps{
 	background: url("../assets/steps-img.png")no-repeat;
-	width: 142px;
-	height: 100px;
-	top: 70px;
+	width: 89px;
+	height: 63px;
+	top: 20px;
 }
 
 #backboard-text{
-	width: 75%;
+	width: 59%;
 	margin: 0 auto;
-	padding-top: 70px;
+	padding-top: 112px;
 }
 
 .backboard-btn-holder{
 	overflow: hidden;
-	position: relative;
-	bottom: 0px;
 	width:320px;
+	position: absolute;
+	bottom: 0px;
 }
 
 #next-btn, #calendar, #fb-btn, #claim-btn, #back, #locate-btn{
@@ -275,25 +285,49 @@ input[type="text"]{
 
 /*gallery page*/
 
-#imageholder{
-	background: url("../assets/imageholder.png")no-repeat;
+.imageholder{
 	width:193px;
 	height:204px;
 	margin-top:5px;
+	position: relative;
+	z-index: 100;
+	/*background: url("../assets/bg-holder.jpg")no-repeat;*/
+	background: black;
+	overflow: hidden;
 }
 
 #timeline{
 	background: url("../assets/line.png")no-repeat;
 	height: 27px;
+	position: relative;
+	bottom: 80px;
+	z-index: 0;
 }
 
-#yearholder{
-	width: 40%;
+.yearholder{
+	width: 100%;
 	height: 18px;
 	font: 18px 'amertype_md_btmedium' bold;
 	text-align: center;
 	color: white;
+	position: relative;
+	z-index: 0;
 }
+
+.namesholder{
+	background: url("../assets/nameholder.png")no-repeat;
+	width: 193px;
+	height: 40px;
+	font: 16px 'amertype_md_btmedium' bold;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	/*position: relative;
+	z-index: 0;
+	bottom: 11px;*/
+}
+
+#uploadForm { position: absolute;}
 
 #go-to-steps{
 	background: url("../assets/upload.png")no-repeat;
@@ -317,7 +351,9 @@ input[type="text"]{
 	height:155px;
 	width:219px;
 	position: relative;
-	top:115px;
+	top:120px;
+	left: -15px;
+	margin: 0 auto;
 }
 
 #continue-btn, #cow{
@@ -334,6 +370,7 @@ input[type="text"]{
 	background: url("../assets/cow.png")no-repeat;
 	float: left;
 	width: 40%;
+	height: 110px!important;
 }
 
 /*coupon*/
@@ -353,3 +390,38 @@ input[type="text"]{
 	float: left;
 }
 
+#close-btn{
+	background: url("../assets/close-button.png")no-repeat;
+	width: 33px;
+	height: 32px;
+	position: relative;
+	left: 275px;
+	bottom: 285px;
+}
+
+#image-temp{
+	background: url("../assets/canvasdraw.png")no-repeat;
+	width:127px;
+	height:90px;
+	position: relative;
+	bottom: 60px;
+	margin: 0 auto;
+}
+
+#point{
+	background: url("../assets/point.png")no-repeat;
+	width:26px;
+	height:27px;
+	margin:0 auto;
+	position: relative;
+	z-index: 1;
+}
+
+#text-map{
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	font-size: 15px;
+	padding-top: 15px;
+}
